@@ -38,7 +38,7 @@
         self.dayHeader = self.picker.dayHeader;
         self.initialDate = $scope.initialDate;
         self.viewModeSmall = $mdMedia('xs');
-        self.startDay = angular.isUndefined($scope.weekStartDay) || $scope.weekStartDay==='' ? 'Sunday' : $scope.weekStartDay ;
+        self.startDay = angular.isUndefined($scope.weekStartDay) || $scope.weekStartDay==='' ? 'Monday' : $scope.weekStartDay ;
         self.minDate = $scope.minDate || undefined;			//Minimum date
         self.maxDate = $scope.maxDate || undefined;			//Maximum date
         self.mode = angular.isUndefined($scope.mode) ? 'DATE' : $scope.mode;
@@ -265,13 +265,13 @@
         var self = this;
         var daysByName = self.picker.daysNames;
         var keys = [];
-        
+
         for (var key in daysByName) {
             keys.push(key)
         };
-        
+
         var startIndex = moment().day(self.startDay).day(), count = 0;
-        
+
         for (var key in daysByName) {
             self.dateCellHeader.push(daysByName[ keys[ (count + startIndex) % (keys.length)] ]);
             count++; // Don't forget to increase count.
